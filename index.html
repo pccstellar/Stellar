@@ -10,7 +10,7 @@
 <style>
 :root {
   /* Page prospect mobile, une colonne : en-tête de marque, vidéos empilées, récap mensuel, rappel des risques. Thème sombre unique, aux couleurs de la marque. */
-  --bg: #0a0d18;
+  --bg: #05060f;
   --surface: #121729;
   --line: #242b45;
   --ink: #eef1f8;
@@ -24,7 +24,7 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body { background: var(--bg); color: var(--ink); font: 400 16px/1.55 var(--font-body); }
-main { max-width: 640px; margin: 0 auto; padding: 28px 16px 48px; display: grid; gap: 28px; }
+main { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; display: grid; gap: 28px; }
 h1, h2 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
 h1 { font-size: 34px; line-height: 1.1; font-weight: 800; }
 h1 span { color: var(--violet); }
@@ -43,21 +43,34 @@ video { display: block; width: 100%; max-height: 78vh; background: #000; }
 .recap img { display: block; width: 100%; height: auto; }
 .note { font-size: 13px; color: var(--muted); }
 .cta { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 14px; padding: 16px; display: grid; gap: 6px; }
-.logo-wrap { position: relative; width: min(100%, 420px); margin: 0 auto 6px; }
-.logo-wrap::before {
-  content: ""; position: absolute; inset: -6%; border-radius: 50%;
-  background: radial-gradient(circle, rgba(116,92,255,.45), rgba(70,140,255,.18) 45%, transparent 70%);
-  filter: blur(18px); animation: logo-pulse 4s ease-in-out infinite;
+.hero { position: relative; overflow: hidden; background: #02020d; isolation: isolate; }
+.hero-bg { position: absolute; inset: -15%; z-index: -2; background: url("logo-stellar.jpg") center / cover; filter: blur(60px) saturate(1.5); opacity: .4; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(1.5px 1.5px at 12% 22%, #fff, transparent 60%),
+    radial-gradient(1px 1px at 28% 68%, #cfd6ff, transparent 60%),
+    radial-gradient(1.5px 1.5px at 82% 18%, #fff, transparent 60%),
+    radial-gradient(1px 1px at 90% 58%, #d9c8ff, transparent 60%),
+    radial-gradient(1px 1px at 6% 82%, #fff, transparent 60%),
+    radial-gradient(1.5px 1.5px at 70% 86%, #bfe0ff, transparent 60%),
+    radial-gradient(ellipse 38% 70% at 50% 45%, #02020d 55%, rgba(2,2,13,0) 100%),
+    radial-gradient(40% 60% at 0% 50%, rgba(70,110,255,.35), transparent 70%),
+    radial-gradient(40% 60% at 100% 50%, rgba(150,80,255,.35), transparent 70%);
+  animation: twinkle 5s ease-in-out infinite;
 }
-.logo {
-  position: relative; display: block; width: 100%; height: auto; border-radius: 24px;
-  border: 1px solid rgba(140,120,255,.35);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 18px 50px rgba(60,40,180,.45);
-  animation: logo-float 6s ease-in-out infinite;
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(to bottom, transparent, var(--bg)); z-index: -1; }
+.hero-inner { max-width: 640px; margin: 0 auto; padding: 8px 16px 0; display: grid; justify-items: center; }
+.hero-logo {
+  display: block; width: min(100%, 560px); height: auto;
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 50%, transparent 100%);
+          mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 50%, transparent 100%);
+  animation: logo-breathe 6s ease-in-out infinite;
 }
-@keyframes logo-pulse { 0%, 100% { opacity: .65; transform: scale(.97); } 50% { opacity: 1; transform: scale(1.03); } }
-@keyframes logo-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-@media (prefers-reduced-motion: reduce) { .logo, .logo-wrap::before { animation: none; } }
+.hero-line { width: min(90%, 520px); height: 1px; margin-top: -8px; background: linear-gradient(90deg, transparent, #6f8bff, #a46bff, transparent); box-shadow: 0 0 12px rgba(140,110,255,.8); }
+@keyframes twinkle { 0%, 100% { opacity: .75; } 50% { opacity: 1; } }
+@keyframes logo-breathe { 0%, 100% { filter: drop-shadow(0 0 0 rgba(120,100,255,0)); } 50% { filter: drop-shadow(0 0 18px rgba(120,100,255,.45)); } }
+@media (prefers-reduced-motion: reduce) { .hero::before, .hero-logo { animation: none; } }
 .tg { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--violet); border-radius: 14px; padding: 16px; display: grid; gap: 12px; }
 .tg-btn {
   position: relative; overflow: hidden; display: block; text-align: center;
@@ -81,11 +94,15 @@ video { display: block; width: 100%; max-height: 78vh; background: #000; }
 </style>
 </head>
 <body>
+<section class="hero" aria-label="Stellar by PCC">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <img class="hero-logo" src="logo-stellar.jpg" alt="Stellar by PCC, la nouvelle aventure du trading automatisé" width="800" height="800">
+    <div class="hero-line" aria-hidden="true"></div>
+  </div>
+</section>
 <main>
   <header>
-    <div class="logo-wrap">
-      <img class="logo" src="logo-stellar.jpg" alt="Stellar by PCC, la nouvelle aventure du trading automatisé" width="800" height="800">
-    </div>
     <p class="brand">PCC.IA Trading Robots</p>
     <h1>Découvrez le robot <span>Stellar</span> en vidéo</h1>
     <p class="lead">Trois courtes vidéos pour voir le robot en action, les comptes de nos clients et ce qu'ils en disent.</p>
