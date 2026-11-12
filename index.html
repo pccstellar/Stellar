@@ -89,6 +89,11 @@ video { display: block; width: 100%; max-height: 78vh; background: #000; }
 @keyframes tg-sweep { 0% { left: -60%; } 55%, 100% { left: 130%; } }
 @keyframes tg-glow { 0%, 100% { box-shadow: 0 0 0 rgba(164,107,255,0); } 50% { box-shadow: 0 0 22px rgba(164,107,255,.55); } }
 @media (prefers-reduced-motion: reduce) { .tg-btn, .tg-btn::after { animation: none; } }
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (min-width: 560px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+.gallery a { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); aspect-ratio: 828 / 1100; transition: transform .2s, border-color .2s; }
+.gallery a:hover { transform: translateY(-2px); border-color: var(--violet); }
+.gallery img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .risk { border-top: 1px solid var(--line); padding-top: 18px; font-size: 12.5px; color: var(--muted); display: grid; gap: 6px; }
 .risk strong { color: var(--ink); }
 </style>
@@ -111,6 +116,7 @@ video { display: block; width: 100%; max-height: 78vh; background: #000; }
       <a href="#comptes">Comptes clients</a>
       <a href="#temoignages">Témoignages</a>
       <a href="#recap">Récap 2026</a>
+      <a href="#membres">Retours membres</a>
     </nav>
     <div class="tg">
       <p>Rejoignez notre canal de trading : nous y publions nos bilans mensuels, hebdomadaires et journaliers, ainsi que nos lives de trading sur TikTok.</p>
@@ -141,6 +147,28 @@ video { display: block; width: 100%; max-height: 78vh; background: #000; }
     <h2>Stellar, janvier à septembre 2026</h2>
     <div class="frame"><img src="stellar-recap-2026.png" alt="Tableau des performances mensuelles du robot Stellar de janvier à septembre 2026, en backtest sur un capital de référence de 1 000 dollars." width="1023" height="1842" loading="lazy"></div>
     <p class="note">Ce tableau est issu d'un backtest (simulation sur données historiques), pas d'un compte réel.</p>
+  </section>
+
+  <section class="item" id="membres">
+    <p class="tag">Communauté</p>
+    <h2>Autres exemples de retours des membres</h2>
+    <div class="gallery">
+      <a href="membres/retour-01.jpg" target="_blank" rel="noopener"><img src="membres/retour-01.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-02.jpg" target="_blank" rel="noopener"><img src="membres/retour-02.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-03.jpg" target="_blank" rel="noopener"><img src="membres/retour-03.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-04.jpg" target="_blank" rel="noopener"><img src="membres/retour-04.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-05.jpg" target="_blank" rel="noopener"><img src="membres/retour-05.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-06.jpg" target="_blank" rel="noopener"><img src="membres/retour-06.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-07.jpg" target="_blank" rel="noopener"><img src="membres/retour-07.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-08.jpg" target="_blank" rel="noopener"><img src="membres/retour-08.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-09.jpg" target="_blank" rel="noopener"><img src="membres/retour-09.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-10.jpg" target="_blank" rel="noopener"><img src="membres/retour-10.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-12.jpg" target="_blank" rel="noopener"><img src="membres/retour-12.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-13.jpg" target="_blank" rel="noopener"><img src="membres/retour-13.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-14.jpg" target="_blank" rel="noopener"><img src="membres/retour-14.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+      <a href="membres/retour-15.jpg" target="_blank" rel="noopener"><img src="membres/retour-15.jpg" alt="Message d'un membre Stellar partageant ses résultats" width="828" height="1800" loading="lazy"></a>
+    </div>
+    <p class="note">Touchez une capture pour l'agrandir. Les noms des membres ont été masqués.</p>
   </section>
 
   <section class="cta">
