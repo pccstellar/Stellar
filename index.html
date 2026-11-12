@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stellar PCC IA Trading Robots</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Page prospect mobile, une colonne : en-tête de marque, vidéos empilées, récap mensuel, rappel des risques. Thème sombre unique, aux couleurs de la marque. */
+  --bg: #0a0d18;
+  --surface: #121729;
+  --line: #242b45;
+  --ink: #eef1f8;
+  --muted: #9aa3bd;
+  --violet: #a46bff;
+  --green: #4fd69c;
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.55 var(--font-body); }
+main { max-width: 640px; margin: 0 auto; padding: 28px 16px 48px; display: grid; gap: 28px; }
+h1, h2 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+h1 { font-size: 34px; line-height: 1.1; font-weight: 800; }
+h1 span { color: var(--violet); }
+h2 { font-size: 19px; font-weight: 600; }
+p { margin: 0; }
+.brand { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+header { display: grid; gap: 10px; }
+.lead { color: var(--muted); max-width: 60ch; }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+nav a { color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; border: 1px solid var(--line); border-radius: 99px; padding: 7px 13px; background: var(--surface); }
+nav a:focus-visible, a:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
+.item { display: grid; gap: 10px; scroll-margin-top: 16px; }
+.item .tag { font-size: 12px; font-weight: 600; color: var(--green); letter-spacing: .06em; text-transform: uppercase; }
+.frame { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+video { display: block; width: 100%; max-height: 78vh; background: #000; }
+.recap img { display: block; width: 100%; height: auto; }
+.note { font-size: 13px; color: var(--muted); }
+.cta { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 14px; padding: 16px; display: grid; gap: 6px; }
+.tg { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--violet); border-radius: 14px; padding: 16px; display: grid; gap: 12px; }
+.tg-btn {
+  position: relative; overflow: hidden; display: block; text-align: center;
+  color: #0a0d18; font-weight: 700; text-decoration: none; border-radius: 12px; padding: 14px 16px;
+  background: linear-gradient(110deg, #a46bff, #4fd69c, #46b6ff, #a46bff);
+  background-size: 300% 100%;
+  animation: tg-colors 6s linear infinite, tg-glow 2.4s ease-in-out infinite;
+}
+.tg-btn::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.75), transparent);
+  transform: skewX(-20deg);
+  animation: tg-sweep 2.8s ease-in-out infinite;
+}
+@keyframes tg-colors { to { background-position: 300% 0; } }
+@keyframes tg-sweep { 0% { left: -60%; } 55%, 100% { left: 130%; } }
+@keyframes tg-glow { 0%, 100% { box-shadow: 0 0 0 rgba(164,107,255,0); } 50% { box-shadow: 0 0 22px rgba(164,107,255,.55); } }
+@media (prefers-reduced-motion: reduce) { .tg-btn, .tg-btn::after { animation: none; } }
+.risk { border-top: 1px solid var(--line); padding-top: 18px; font-size: 12.5px; color: var(--muted); display: grid; gap: 6px; }
+.risk strong { color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="brand">PCC.IA Trading Robots</p>
+    <h1>Découvrez le robot <span>Stellar</span> en vidéo</h1>
+    <p class="lead">Trois courtes vidéos pour voir le robot en action, les comptes de nos clients et ce qu'ils en disent.</p>
+    <nav aria-label="Vidéos">
+      <a href="#stellar">Résultats Stellar</a>
+      <a href="#comptes">Comptes clients</a>
+      <a href="#temoignages">Témoignages</a>
+      <a href="#recap">Récap 2026</a>
+    </nav>
+    <div class="tg">
+      <p>Rejoignez notre canal de trading : nous y publions nos bilans mensuels, hebdomadaires et journaliers, ainsi que nos lives de trading sur TikTok.</p>
+      <a class="tg-btn" href="https://t.me/+GI6hoThpldJjZWI0" target="_blank" rel="noopener">Rejoindre le canal de trading</a>
+    </div>
+  </header>
+
+  <section class="item" id="stellar">
+    <p class="tag">Vidéo 1 · 37 s</p>
+    <h2>Résultats récents du robot Stellar</h2>
+    <div class="frame"><video controls playsinline preload="metadata" poster="poster-stellar.jpg" src="stellar-resultats-720p.mp4"></video></div>
+  </section>
+
+  <section class="item" id="comptes">
+    <p class="tag">Vidéo 2 · 3 min 46</p>
+    <h2>Résultats des comptes clients sur MT5</h2>
+    <div class="frame"><video controls playsinline preload="metadata" poster="poster-comptes.jpg" src="comptes-clients-720p.mp4"></video></div>
+  </section>
+
+  <section class="item" id="temoignages">
+    <p class="tag">Vidéo 3 · 3 min 13</p>
+    <h2>Témoignages clients</h2>
+    <div class="frame"><video controls playsinline preload="metadata" poster="poster-temoignages.jpg" src="temoignages-720p.mp4"></video></div>
+  </section>
+
+  <section class="item recap" id="recap">
+    <p class="tag">Récapitulatif mensuel</p>
+    <h2>Stellar, janvier à septembre 2026</h2>
+    <div class="frame"><img src="stellar-recap-2026.png" alt="Tableau des performances mensuelles du robot Stellar de janvier à septembre 2026, en backtest sur un capital de référence de 1 000 dollars." width="1023" height="1842" loading="lazy"></div>
+    <p class="note">Ce tableau est issu d'un backtest (simulation sur données historiques), pas d'un compte réel.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Une question ?</h2>
+    <p>Répondez simplement au SMS que vous avez reçu, je vous rappelle pour vous présenter Stellar.</p>
+  </section>
+
+  <section class="tg">
+    <h2>Suivez nos résultats au quotidien</h2>
+    <p>Rejoignez notre canal de trading : nous y publions nos bilans mensuels, hebdomadaires et journaliers, ainsi que nos lives de trading sur TikTok.</p>
+    <a class="tg-btn" href="https://t.me/+GI6hoThpldJjZWI0" target="_blank" rel="noopener">Rejoindre le canal de trading</a>
+  </section>
+
+  <footer class="risk">
+    <p><strong>Avertissement sur les risques.</strong> Le trading sur le Forex et les CFD comporte un risque élevé de perte en capital, pouvant aller jusqu'à la totalité de la somme investie. N'investissez que l'argent que vous pouvez vous permettre de perdre.</p>
+    <p>Les performances passées et les résultats de backtest ne préjugent pas des performances futures. Les résultats présentés ne constituent ni une garantie de gain, ni un conseil en investissement.</p>
+  </footer>
+</main>
+</body>
+</html>
