@@ -43,6 +43,21 @@ video { display: block; width: 100%; max-height: 78vh; background: #000; }
 .recap img { display: block; width: 100%; height: auto; }
 .note { font-size: 13px; color: var(--muted); }
 .cta { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 14px; padding: 16px; display: grid; gap: 6px; }
+.logo-wrap { position: relative; width: min(100%, 420px); margin: 0 auto 6px; }
+.logo-wrap::before {
+  content: ""; position: absolute; inset: -6%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(116,92,255,.45), rgba(70,140,255,.18) 45%, transparent 70%);
+  filter: blur(18px); animation: logo-pulse 4s ease-in-out infinite;
+}
+.logo {
+  position: relative; display: block; width: 100%; height: auto; border-radius: 24px;
+  border: 1px solid rgba(140,120,255,.35);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 18px 50px rgba(60,40,180,.45);
+  animation: logo-float 6s ease-in-out infinite;
+}
+@keyframes logo-pulse { 0%, 100% { opacity: .65; transform: scale(.97); } 50% { opacity: 1; transform: scale(1.03); } }
+@keyframes logo-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@media (prefers-reduced-motion: reduce) { .logo, .logo-wrap::before { animation: none; } }
 .tg { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--violet); border-radius: 14px; padding: 16px; display: grid; gap: 12px; }
 .tg-btn {
   position: relative; overflow: hidden; display: block; text-align: center;
@@ -68,6 +83,9 @@ video { display: block; width: 100%; max-height: 78vh; background: #000; }
 <body>
 <main>
   <header>
+    <div class="logo-wrap">
+      <img class="logo" src="logo-stellar.jpg" alt="Stellar by PCC, la nouvelle aventure du trading automatisé" width="800" height="800">
+    </div>
     <p class="brand">PCC.IA Trading Robots</p>
     <h1>Découvrez le robot <span>Stellar</span> en vidéo</h1>
     <p class="lead">Trois courtes vidéos pour voir le robot en action, les comptes de nos clients et ce qu'ils en disent.</p>
